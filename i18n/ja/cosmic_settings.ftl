@@ -1,5 +1,7 @@
 app = COSMIC設定
 
+dbus-connection-error = DBusに接続できませんでした
+ok = OK
 unknown = 不明
 
 number = { $number }
@@ -62,8 +64,24 @@ remove-connection-dialog = 接続プロファイルを削除してもよろし�
 
 vpn = VPN
     .connections = VPN接続
+    .error = VPNコンフィグを追加できませんでした
     .remove = 接続プロファイルを削除する
     .select-file = VPNの構成ファイルを選択
+
+vpn-error = VPNエラー
+    .config = コンフィグを追加できませんでした
+    .connect = VPNに接続できませんでした
+    .connection-editor = 接続のエディターが失敗しました
+    .connection-settings = 有効な接続の設定を読めませんでした
+    .updating-state = Failed to update network manager state
+    .wireguard-config-path = WireGuardコンフィグのファイルパスは無効です
+    .wireguard-config-path-desc = 選択されたファイルはロカールなファイルシステムになければなりません。
+    .wireguard-device = WireGuardデバイスを作成できませんでした
+    .with-password = mncliでVPNの{ $field ->
+        *[username] ユーザー名
+        [password] パスワード
+        [password-flags] パスワードフラグ
+    }を設定できませんでした
 
 wired = 有線
     .adapter = { $id }という有線のアダプター
@@ -75,12 +93,17 @@ wifi = Wi-Fi
     .adapter = { $id }というWi-Fiアダプター
     .forget = このネットワークを忘れる
 
-## Networking: Online Accounts
+wireguard-dialog = WireGuardデバイスを追加
+    .description = WireGuardコンフィグのデバイス名を決めて下さい。
+
+## Networking: オンラインアカウント
 
 online-accounts = オンラインアカウント
     .desc = アカウント、IMAPとSMTP、エンタプライズログインを追加
 
 # Bluetooth
+
+confirm = 確認
 
 bluetooth = Bluetooth
     .desc = Bluetoothデバイスの操作
@@ -92,20 +115,46 @@ bluetooth = Bluetooth
     .disconnect = 切断する
     .forget = 忘れる
     .dbus-error = DBusと相互作用しながらエラーが発生しました： { $why }
-    .show-device-without-name = 名前無しのデバイスを表示
 
 bluetooth-paired = 前に接続したデバイス
     .connect = 接続
     .battery = バッテリーの{ $percentage }%
 
+bluetooth-confirm-pin = BluetoothのPINを確認して下さい
+    .description = 次のPINが{ $device }に表示されているPINと一致するかと確かめてください。
+
 bluetooth-available = 隣のデバイス
 
 bluetooth-adapters = Bluetoothアダプター
 
-
 ## Desktop
 
 desktop = デスクトップ
+
+## Desktop: Wallpaper
+
+wallpaper = 背景
+    .change = この期間ごとに画像を変える：
+    .desc = 背景の画像、色、スライドショー設定。
+    .fit = 背景フィット
+    .folder-dialog = 背景のフォルダを選択
+    .image-dialog = 背景の画像を選択
+    .plural = 背景
+    .same = すべてのディスプレイで同じ背景を使う
+    .slide = スライドショー
+
+add-color = 色を追加
+add-image = 画像を追加
+all-displays = 全てのディスプレイ
+colors = 色
+dialog-add = 追加
+fill = フィル
+fit-to-screen = 画面に合わせる
+open-new-folder = 新しいフォルダを開く
+recent-folders = 最近のフォルダ
+
+x-minutes = { $number }分
+x-hours = { $number }時間
 
 ## Desktop: 外観
 
@@ -148,8 +197,6 @@ control-tint = コントロールコンポーネントティント
 frosted = システムインターフェイスのすりガラス効果
     .desc = パネル、ドック、アプレット、ランチャー、アプリケーションライブラリの背景をぼかします。
 
-experimental-settings = 試験的な設定
-
 enable-export = このテーマをGNOMEアプリケーションに適用
     .desc = あるツールキットは自動的な切り替えをサポートしません。 テーマを切り替えると、非COSMICのアプリケーションは再起動が必要の可能性があります。
 
@@ -172,6 +219,73 @@ interface-density = インタフェース密度
 window-management = ウィンドウマネジメント
     .active-hint = アクティブウィンドウヒントの大きさ
     .gaps = タイル型ウィンドウ
+
+### Experimental
+
+experimental-settings = 試験的な設定
+icons-and-toolkit = アイコンとツールキットのテーマ
+interface-font = システムフォント
+monospace-font = モノスペースフォント
+
+## Desktop: Notifications
+
+notifications = 通知
+    .desc = 通知ポップアップの表示、ロック画面の通知、アプリケーションごとの設定。
+
+## Desktop: Panel
+
+panel = パネル
+    .desc = デスクトップコントロールとメニューありトップパネル。
+
+add = 追加
+add-applet = アプレットを追加
+all = すべて
+applets = アプレット
+center-segment = 中心の部分
+drop-here = ここにアプレットを入れてください
+end-segment = 最後の部分
+large = 大きい
+no-applets-found = アプレットは見つけられませんでした...
+panel-bottom = 下
+panel-left = 左
+panel-right = 右
+panel-top = 上
+search-applets = アプレットを検索...
+small = 小さい
+start-segment = 最初の部分
+
+panel-appearance = 外観
+    .match = システム設定に従う
+    .light = ライト
+    .dark = ダーク
+
+panel-behavior-and-position = 行動と位置
+    .autohide = パネルを自動的にかくす
+    .dock-autohide = ドックを自動的に隠す
+    .position = 画面上の位置
+    .display = ディスプレイに表示
+
+panel-style = パネルスタイル
+    .anchor-gap = パネルと画面の端の間の隙間
+    .dock-anchor-gap = ドックと画面の端の間の隙間
+    .extend = パネルを画面の端まで拡張
+    .dock-extend = ドックを画面の端まで拡張
+    .appearance = 外観
+    .size = 大きさ
+    .background-opacity = 背景の不透明度
+
+panel-applets = 構成
+    .dock-desc = ドックのアプレットを構成
+    .desc = パネルのアプレットを構成
+
+panel-missing = パネル構成は見つけられません
+    .desc = パネル構成ファイルは壊れているか、カスタム構成の使用により見つけられません。
+    .fix = デフォルトに戻す
+
+## Desktop: Dock
+
+dock = Dock
+    .desc = アプリトレーでピン留めされたアプリケーションとその他のアプレットがあるパネル
 
 ## Desktop: Display
 
@@ -231,11 +345,6 @@ legacy-applications = X11アプリケーションのスケーリング
     .scaled-natively = X11アプリをネーティブの解像度で表現する
     .native-description = スケーリングをサポートしていないX11アプリケーションはHiDPI画面に小さく見えます。ゲームが完全に解像度を使用できるように有効にして下さい。
 
-## Desktop: Notifications
-
-notifications = 通知
-    .desc = 通知ポップアップの表示、ロック画面の通知、アプリケーションごとの設定。
-
 ## Desktop: Options
 
 desktop-panel-options = デスクトップとパネル
@@ -257,80 +366,6 @@ window-controls = ウィンドウコントロール
     .minimize = 最小化ボタンを表示
     .maximize = 最大化ボタンを表示
 
-## Desktop: Panel
-
-panel = パネル
-    .desc = デスクトップコントロールとメニューありトップパネル。
-
-add = 追加
-add-applet = アプレットを追加
-all = すべて
-applets = アプレット
-center-segment = 中心の部分
-drop-here = ここにアプレットを入れてください
-end-segment = 最後の部分
-large = 大きい
-no-applets-found = アプレットは見つけられませんでした...
-panel-bottom = 下
-panel-left = 左
-panel-right = 右
-panel-top = 上
-search-applets = アプレットを検索...
-small = 小さい
-start-segment = 最初の部分
-
-panel-appearance = 外観
-    .match = システム設定に従う
-    .light = ライト
-    .dark = ダーク
-
-panel-behavior-and-position = 行動と位置
-    .autohide = パネルを自動的にかくす
-    .dock-autohide = ドックを自動的に隠す
-    .position = 画面上の位置
-    .display = ディスプレイに表示
-
-panel-style = パネルスタイル
-    .anchor-gap = パネルと画面の端の間の隙間
-    .dock-anchor-gap = ドックと画面の端の間の隙間
-    .extend = パネルを画面の端まで拡張
-    .dock-extend = ドックを画面の端まで拡張
-    .appearance = 外観
-    .size = 大きさ
-    .background-opacity = 背景の不透明度
-
-panel-applets = 構成
-    .dock-desc = ドックのアプレットを構成
-    .desc = パネルのアプレットを構成
-
-panel-missing = パネル構成は見つけられません
-    .desc = パネル構成ファイルは壊れているか、カスタム構成の使用により見つけられません。
-    .fix = デフォルトに戻す
-
-## Desktop: Wallpaper
-
-wallpaper = 背景
-    .change = この期間ごとに画像を変える：
-    .desc = 背景の画像、色、スライドショー設定。
-    .fit = 背景フィット
-    .folder-dialog = 背景のフォルダを選択
-    .image-dialog = 背景の画像を選択
-    .plural = 背景
-    .same = すべてのディスプレイで同じ背景を使う
-    .slide = スライドショー
-
-add-color = 色を追加
-add-image = 画像を追加
-all-displays = 全てのディスプレイ
-colors = 色
-dialog-add = 追加
-fill = フィル
-fit-to-screen = 画面に合わせる
-open-new-folder = 新しいフォルダを開く
-recent-folders = 最近のフォルダ
-
-x-minutes = { $number }分
-x-hours = { $number }時間
 
 ## Desktop: Workspaces
 
