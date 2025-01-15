@@ -73,7 +73,7 @@ vpn-error = VPNエラー
     .connect = VPNに接続できませんでした
     .connection-editor = 接続のエディターが失敗しました
     .connection-settings = 有効な接続の設定を読めませんでした
-    .updating-state = Failed to update network manager state
+    .updating-state = ネットワークマネジャーステータスを更新できませんでした
     .wireguard-config-path = WireGuardコンフィグのファイルパスは無効です
     .wireguard-config-path-desc = 選択されたファイルはロカールなファイルシステムになければなりません。
     .wireguard-device = WireGuardデバイスを作成できませんでした
@@ -118,7 +118,7 @@ bluetooth = Bluetooth
 
 bluetooth-paired = 前に接続したデバイス
     .connect = 接続
-    .battery = バッテリーの{ $percentage }%
+    .battery = バッテリ残量：{ $percentage }%
 
 bluetooth-confirm-pin = BluetoothのPINを確認して下さい
     .description = 次のPINが{ $device }に表示されているPINと一致するかと確かめてください。
@@ -182,9 +182,9 @@ window-hint-accent-toggle = テーマのアクセントカラーをアクティ�
 
 auto-switch = 自動的にライトモードからダークモードに切り替える
     .sunrise = 日の出にライトモードに切り替えます
-    .sunset = 日の入りにライトモードに切り替えます
+    .sunset = 日の入りにダークモードに切り替えます
     .next-sunrise = 次の日の出にライトモードに切り替えます
-    .next-sunset = 次の日の入りにライトモードに切り替えます
+    .next-sunset = 次の日の入りにダークモードに切り替えます
 
 container-background = コンテナー背景
     .desc-detail = サイドバー、ダイアログ、類似ウィジェットで使用されます。 規定では、アプリケーションまたはウィンドウの背景から自動的に選択されています。
@@ -284,8 +284,29 @@ panel-missing = パネル構成は見つけられません
 
 ## Desktop: Dock
 
-dock = Dock
+dock = ドック
     .desc = アプリトレーでピン留めされたアプリケーションとその他のアプレットがあるパネル
+
+## Desktop: Window management
+
+window-management = ウィンドウ操作
+    .desc = スーパーキーの行動、ウィンドウコントロールの設定、他のウィンドウタイル法式設定
+
+super-key = スーパーキーの行動
+    .launcher = ランチャーを開く
+    .workspaces = ワークスペースを開く
+    .applications = アプリケーションを開く
+    .disable = 無効
+
+window-controls = ウィンドウコントロール
+    .minimize = 最小化ボタンを表示
+    .maximize = 最大化ボタンを表示
+    .active-window-hint = アクティブなウィンドウのヒントを表示
+
+focus-navigation = Focus Navigation
+    .focus-follows-cursor = Focus follows cursor
+    .focus-follows-cursor-delay = Focus follows cursor delay in ms
+    .cursor-follows-focus = Cursor follows focus
 
 ## Desktop: Display
 
